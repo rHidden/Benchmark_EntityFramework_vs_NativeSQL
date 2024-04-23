@@ -86,7 +86,7 @@ namespace EFvsSQLBenchmark
                     }
                 }
 
-                // Native SQL JOIN - 2500x25000x25000 connection tables
+                // Native SQL JOIN - Should return ~129450 rows
                 using (var connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -124,7 +124,7 @@ namespace EFvsSQLBenchmark
                     nativeSqlJoinTimes.Add(stopwatch.ElapsedMilliseconds);
                 }
 
-                //EF JOIN
+                //EF JOIN - Should return ~129450 rows
                 using (var dbContext = new MyDbContext(connectionString))
                 {
                     var stopwatch = Stopwatch.StartNew();
