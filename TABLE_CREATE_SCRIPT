@@ -1,0 +1,39 @@
+-- Create Superheroes table
+CREATE TABLE Superheroes (
+    SuperheroId INT PRIMARY KEY,
+    Name NVARCHAR(100),
+    Alias NVARCHAR(100),
+    Gender NVARCHAR(20),
+    Alignment NVARCHAR(20),
+    Universe NVARCHAR(50)
+);
+
+-- Create Superpowers table
+CREATE TABLE Superpowers (
+    PowerId INT PRIMARY KEY,
+    Name NVARCHAR(100)
+);
+
+-- Create Teams table
+CREATE TABLE Teams (
+    TeamId INT PRIMARY KEY,
+    Name NVARCHAR(100)
+);
+
+-- Create SuperheroPowers table
+CREATE TABLE SuperheroPowers (
+    SuperheroId INT,
+    PowerId INT,
+    CONSTRAINT PK_SuperheroPowers PRIMARY KEY (SuperheroId, PowerId),
+    CONSTRAINT FK_SuperheroPowers_Superheroes FOREIGN KEY (SuperheroId) REFERENCES Superheroes(SuperheroId),
+    CONSTRAINT FK_SuperheroPowers_Superpowers FOREIGN KEY (PowerId) REFERENCES Superpowers(PowerId)
+);
+
+-- Create SuperheroTeams table
+CREATE TABLE SuperheroTeams (
+    SuperheroId INT,
+    TeamId INT,
+    CONSTRAINT PK_SuperheroTeams PRIMARY KEY (SuperheroId, TeamId),
+    CONSTRAINT FK_SuperheroTeams_Superheroes FOREIGN KEY (SuperheroId) REFERENCES Superheroes(SuperheroId),
+    CONSTRAINT FK_SuperheroTeams_Teams FOREIGN KEY (TeamId) REFERENCES Teams(TeamId)
+);
