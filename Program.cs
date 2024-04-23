@@ -34,7 +34,7 @@ namespace EFvsSQLBenchmark
             {
                 Console.WriteLine("RUN number " + i);
 
-                string connectionString = "FILL ME";
+                string connectionString = "Server=;Initial Catalog=;Integrated Security=true;TrustServerCertificate=true"; // Fill in Initial catalog - db name, Server - likely your pc name, this connection string works with SSMS 19
                 int startNumber = 16;
                 int largeIncrement = 10000;
                 int smallIncrement = 1000;
