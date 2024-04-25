@@ -415,33 +415,6 @@ namespace EFvsSQLBenchmark
 
             Console.WriteLine("Standard deviation:");
             Console.WriteLine();
-            //Console.WriteLine("With Cold start");
-            //Console.WriteLine();
-
-            // Calculating Standard Deviation for Insertions
-            //double nativeSqlInsertionStdDevLarge = CalculateStandardDeviation(nativeSqlInsertionTimesLarge);
-            //double entityFrameworkInsertionStdDevLarge = CalculateStandardDeviation(entityFrameworkInsertionTimesLarge);
-            //double nativeSqlInsertionStdDevSmall = CalculateStandardDeviation(nativeSqlInsertionTimesSmall);
-            //double entityFrameworkInsertionStdDevSmall = CalculateStandardDeviation(entityFrameworkInsertionTimesSmall);
-
-            //Console.WriteLine($"Native SQL Insertion Time (Large Data) - Std Dev: {nativeSqlInsertionStdDevLarge} ms");
-            //Console.WriteLine($"Entity Framework Insertion Time (Large Data) - Std Dev: {entityFrameworkInsertionStdDevLarge} ms");
-            //Console.WriteLine($"Native SQL Insertion Time (Small Data) - Std Dev: {nativeSqlInsertionStdDevSmall} ms");
-            //Console.WriteLine($"Entity Framework Insertion Time (Small Data) - Std Dev: {entityFrameworkInsertionStdDevSmall} ms");
-
-            //// Calculating Standard Deviation for Reads
-            //double nativeSqlReadingStdDevLarge = CalculateStandardDeviation(nativeSqlReadingTimesLarge);
-            //double entityFrameworkReadingStdDevLarge = CalculateStandardDeviation(entityFrameworkReadingTimesLarge);
-            //double nativeSqlReadingStdDevSmall = CalculateStandardDeviation(nativeSqlReadingTimesSmall);
-            //double entityFrameworkReadingStdDevSmall = CalculateStandardDeviation(entityFrameworkReadingTimesSmall);
-
-            //Console.WriteLine($"Native SQL Reading Time (Large Data) - Std Dev: {nativeSqlReadingStdDevLarge} ms");
-            //Console.WriteLine($"Entity Framework Reading Time (Large Data) - Std Dev: {entityFrameworkReadingStdDevLarge} ms");
-            //Console.WriteLine($"Native SQL Reading Time (Small Data) - Std Dev: {nativeSqlReadingStdDevSmall} ms");
-            //Console.WriteLine($"Entity Framework Reading Time (Small Data) - Std Dev: {entityFrameworkReadingStdDevSmall} ms");
-
-            //Console.WriteLine("Without Cold start");
-            //Console.WriteLine();
 
             // Calculating Standard Deviation for Joins
             double nativeSqlJoinStdDev = CalculateStandardDeviation(nativeSqlJoinTimes.Skip(1).ToList());
@@ -452,67 +425,38 @@ namespace EFvsSQLBenchmark
             Console.WriteLine($"Entity Framework Join Time - Std Dev: {entityFrameworkJoinStdDev:F3} ms");
 
             // Calculating Standard Deviation for Insertions
-            double nativeSqlInsertionStdDevLarge2 = CalculateStandardDeviation(nativeSqlInsertionTimesLarge.Skip(1).ToList());
-            double entityFrameworkInsertionStdDevLarge2 = CalculateStandardDeviation(entityFrameworkInsertionTimesLarge.Skip(1).ToList());
-            double nativeSqlInsertionStdDevSmall2 = CalculateStandardDeviation(nativeSqlInsertionTimesSmall.Skip(1).ToList());
-            double entityFrameworkInsertionStdDevSmall2 = CalculateStandardDeviation(entityFrameworkInsertionTimesSmall.Skip(1).ToList());
+            double nativeSqlInsertionStdDevLarge = CalculateStandardDeviation(nativeSqlInsertionTimesLarge.Skip(1).ToList());
+            double entityFrameworkInsertionStdDevLarge = CalculateStandardDeviation(entityFrameworkInsertionTimesLarge.Skip(1).ToList());
+            double nativeSqlInsertionStdDevSmall = CalculateStandardDeviation(nativeSqlInsertionTimesSmall.Skip(1).ToList());
+            double entityFrameworkInsertionStdDevSmall = CalculateStandardDeviation(entityFrameworkInsertionTimesSmall.Skip(1).ToList());
 
             Console.WriteLine();
 
             Console.WriteLine("INSERT OPERATIONS");
-            Console.WriteLine($"Native SQL Insertion Time (Large Data) - Std Dev: {nativeSqlInsertionStdDevLarge2:F3} ms");
-            Console.WriteLine($"Entity Framework Insertion Time (Large Data) - Std Dev: {entityFrameworkInsertionStdDevLarge2:F3} ms");
-            Console.WriteLine($"Native SQL Insertion Time (Small Data) - Std Dev: {nativeSqlInsertionStdDevSmall2:F3} ms");
-            Console.WriteLine($"Entity Framework Insertion Time (Small Data) - Std Dev: {entityFrameworkInsertionStdDevSmall2:F3} ms");
+            Console.WriteLine($"Native SQL Insertion Time (Large Data) - Std Dev: {nativeSqlInsertionStdDevLarge:F3} ms");
+            Console.WriteLine($"Entity Framework Insertion Time (Large Data) - Std Dev: {entityFrameworkInsertionStdDevLarge:F3} ms");
+            Console.WriteLine($"Native SQL Insertion Time (Small Data) - Std Dev: {nativeSqlInsertionStdDevSmall:F3} ms");
+            Console.WriteLine($"Entity Framework Insertion Time (Small Data) - Std Dev: {entityFrameworkInsertionStdDevSmall:F3} ms");
 
             Console.WriteLine();
 
             // Calculating Standard Deviation for Reads
-            double nativeSqlReadingStdDevLarge2 = CalculateStandardDeviation(nativeSqlReadingTimesLarge.Skip(1).ToList());
-            double entityFrameworkReadingStdDevLarge2 = CalculateStandardDeviation(entityFrameworkReadingTimesLarge.Skip(1).ToList());
-            double nativeSqlReadingStdDevSmall2 = CalculateStandardDeviation(nativeSqlReadingTimesSmall.Skip(1).ToList());
-            double entityFrameworkReadingStdDevSmall2 = CalculateStandardDeviation(entityFrameworkReadingTimesSmall.Skip(1).ToList());
+            double nativeSqlReadingStdDevLarge = CalculateStandardDeviation(nativeSqlReadingTimesLarge.Skip(1).ToList());
+            double entityFrameworkReadingStdDevLarge = CalculateStandardDeviation(entityFrameworkReadingTimesLarge.Skip(1).ToList());
+            double nativeSqlReadingStdDevSmall = CalculateStandardDeviation(nativeSqlReadingTimesSmall.Skip(1).ToList());
+            double entityFrameworkReadingStdDevSmall = CalculateStandardDeviation(entityFrameworkReadingTimesSmall.Skip(1).ToList());
 
             Console.WriteLine("READ OPERATIONS");
-            Console.WriteLine($"Native SQL Reading Time (Large Data) - Std Dev: {nativeSqlReadingStdDevLarge2:F3} ms");
-            Console.WriteLine($"Entity Framework Reading Time (Large Data) - Std Dev: {entityFrameworkReadingStdDevLarge2:F3} ms");
-            Console.WriteLine($"Native SQL Reading Time (Small Data) - Std Dev: {nativeSqlReadingStdDevSmall2:F3} ms");
-            Console.WriteLine($"Entity Framework Reading Time (Small Data) - Std Dev: {entityFrameworkReadingStdDevSmall2:F3} ms");
+            Console.WriteLine($"Native SQL Reading Time (Large Data) - Std Dev: {nativeSqlReadingStdDevLarge:F3} ms");
+            Console.WriteLine($"Entity Framework Reading Time (Large Data) - Std Dev: {entityFrameworkReadingStdDevLarge:F3} ms");
+            Console.WriteLine($"Native SQL Reading Time (Small Data) - Std Dev: {nativeSqlReadingStdDevSmall:F3} ms");
+            Console.WriteLine($"Entity Framework Reading Time (Small Data) - Std Dev: {entityFrameworkReadingStdDevSmall:F3} ms");
 
             Console.WriteLine();
             Console.WriteLine();
 
             Console.WriteLine("Average TIME:");
             Console.WriteLine();
-            //Console.WriteLine("With Cold start");
-            //Console.WriteLine();
-
-            //// Calculating Avergae for Insertions
-            //double nativeSqlInsertionAverageLarge = CalculateAverage(nativeSqlInsertionTimesLarge);
-            //double entityFrameworkInsertionAverageLarge = CalculateAverage(entityFrameworkInsertionTimesLarge);
-            //double nativeSqlInsertionAverageSmall = CalculateAverage(nativeSqlInsertionTimesSmall);
-            //double entityFrameworkInsertionAverageSmall = CalculateAverage(entityFrameworkInsertionTimesSmall);
-
-            //Console.WriteLine($"Native SQL Insertion Time (Large Data) - Average: {nativeSqlInsertionAverageLarge} ms");
-            //Console.WriteLine($"Entity Framework Insertion Time (Large Data) - Average: {entityFrameworkInsertionAverageLarge} ms");
-            //Console.WriteLine($"Native SQL Insertion Time (Small Data) - Average: {nativeSqlInsertionAverageSmall} ms");
-            //Console.WriteLine($"Entity Framework Insertion Time (Small Data) - Average: {entityFrameworkInsertionAverageSmall} ms");
-
-            //// Calculating Average for Reads
-            //double nativeSqlReadingAverageLarge = CalculateAverage(nativeSqlReadingTimesLarge);
-            //double entityFrameworkReadingAverageLarge = CalculateAverage(entityFrameworkReadingTimesLarge);
-            //double nativeSqlReadingAverageSmall = CalculateAverage(nativeSqlReadingTimesSmall);
-            //double entityFrameworkReadingAverageSmall = CalculateAverage(entityFrameworkReadingTimesSmall);
-
-            //Console.WriteLine($"Native SQL Reading Time (Large Data) - Average: {nativeSqlReadingAverageLarge} ms");
-            //Console.WriteLine($"Entity Framework Reading Time (Large Data) - Average: {entityFrameworkReadingAverageLarge} ms");
-            //Console.WriteLine($"Native SQL Reading Time (Small Data) - Average: {nativeSqlReadingAverageSmall} ms");
-            //Console.WriteLine($"Entity Framework Reading Time (Small Data) - Average: {entityFrameworkReadingAverageSmall} ms");
-
-            //Console.WriteLine();
-
-            //Console.WriteLine("Without Cold start");
-            //Console.WriteLine();
 
             // Calculating Avergae for JOINS
             double nativeSqlJoinAverage = CalculateAverage(nativeSqlJoinTimes.Skip(1).ToList());
@@ -525,30 +469,30 @@ namespace EFvsSQLBenchmark
             Console.WriteLine();
 
             // Calculating Avergae for Insertions
-            double nativeSqlInsertionAverageLarge2 = CalculateAverage(nativeSqlInsertionTimesLarge.Skip(1).ToList());
-            double entityFrameworkInsertionAverageLarge2 = CalculateAverage(entityFrameworkInsertionTimesLarge.Skip(1).ToList());
-            double nativeSqlInsertionAverageSmall2 = CalculateAverage(nativeSqlInsertionTimesSmall.Skip(1).ToList());
-            double entityFrameworkInsertionAverageSmall2 = CalculateAverage(entityFrameworkInsertionTimesSmall.Skip(1).ToList());
+            double nativeSqlInsertionAverageLarge = CalculateAverage(nativeSqlInsertionTimesLarge.Skip(1).ToList());
+            double entityFrameworkInsertionAverageLarge = CalculateAverage(entityFrameworkInsertionTimesLarge.Skip(1).ToList());
+            double nativeSqlInsertionAverageSmall = CalculateAverage(nativeSqlInsertionTimesSmall.Skip(1).ToList());
+            double entityFrameworkInsertionAverageSmall = CalculateAverage(entityFrameworkInsertionTimesSmall.Skip(1).ToList());
 
             Console.WriteLine("INSERT OPERATIONS");
-            Console.WriteLine($"Native SQL Insertion Time (Large Data) - Average: {nativeSqlInsertionAverageLarge2:F3} ms");
-            Console.WriteLine($"Entity Framework Insertion Time (Large Data) - Average: {entityFrameworkInsertionAverageLarge2:F3} ms");
-            Console.WriteLine($"Native SQL Insertion Time (Small Data) - Average: {nativeSqlInsertionAverageSmall2:F3} ms");
-            Console.WriteLine($"Entity Framework Insertion Time (Small Data) - Average: {entityFrameworkInsertionAverageSmall2:F3} ms");
+            Console.WriteLine($"Native SQL Insertion Time (Large Data) - Average: {nativeSqlInsertionAverageLarge:F3} ms");
+            Console.WriteLine($"Entity Framework Insertion Time (Large Data) - Average: {entityFrameworkInsertionAverageLarge:F3} ms");
+            Console.WriteLine($"Native SQL Insertion Time (Small Data) - Average: {nativeSqlInsertionAverageSmall:F3} ms");
+            Console.WriteLine($"Entity Framework Insertion Time (Small Data) - Average: {entityFrameworkInsertionAverageSmall:F3} ms");
 
             Console.WriteLine();
 
             // Calculating Average for Reads
-            double nativeSqlReadingAverageLarge2 = CalculateAverage(nativeSqlReadingTimesLarge.Skip(1).ToList());
-            double entityFrameworkReadingAverageLarge2 = CalculateAverage(entityFrameworkReadingTimesLarge.Skip(1).ToList());
-            double nativeSqlReadingAverageSmall2 = CalculateAverage(nativeSqlReadingTimesSmall.Skip(1).ToList());
-            double entityFrameworkReadingAverageSmall2 = CalculateAverage(entityFrameworkReadingTimesSmall.Skip(1).ToList());
+            double nativeSqlReadingAverageLarge = CalculateAverage(nativeSqlReadingTimesLarge.Skip(1).ToList());
+            double entityFrameworkReadingAverageLarge = CalculateAverage(entityFrameworkReadingTimesLarge.Skip(1).ToList());
+            double nativeSqlReadingAverageSmall = CalculateAverage(nativeSqlReadingTimesSmall.Skip(1).ToList());
+            double entityFrameworkReadingAverageSmall = CalculateAverage(entityFrameworkReadingTimesSmall.Skip(1).ToList());
 
             Console.WriteLine("READ OPERATIONS");
-            Console.WriteLine($"Native SQL Reading Time (Large Data) - Average: {nativeSqlReadingAverageLarge2:F3} ms");
-            Console.WriteLine($"Entity Framework Reading Time (Large Data) - Average: {entityFrameworkReadingAverageLarge2:F3} ms");
-            Console.WriteLine($"Native SQL Reading Time (Small Data) - Average: {nativeSqlReadingAverageSmall2:F3} ms");
-            Console.WriteLine($"Entity Framework Reading Time (Small Data) - Average: {entityFrameworkReadingAverageSmall2:F3} ms");
+            Console.WriteLine($"Native SQL Reading Time (Large Data) - Average: {nativeSqlReadingAverageLarge:F3} ms");
+            Console.WriteLine($"Entity Framework Reading Time (Large Data) - Average: {entityFrameworkReadingAverageLarge:F3} ms");
+            Console.WriteLine($"Native SQL Reading Time (Small Data) - Average: {nativeSqlReadingAverageSmall:F3} ms");
+            Console.WriteLine($"Entity Framework Reading Time (Small Data) - Average: {entityFrameworkReadingAverageSmall:F3} ms");
 
             Console.WriteLine();
         }
